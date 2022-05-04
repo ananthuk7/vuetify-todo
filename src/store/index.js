@@ -5,11 +5,12 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    search: null,
     tasks: [
       {
         id: 1,
         title: "eat",
-        dueDate:"2020-10-15",
+        dueDate: "2020-10-15",
         done: false,
       }
     ],
@@ -20,6 +21,13 @@ export default new Vuex.Store({
 
   },
   getters: {
+    getFilteredData(state){
+      if (!state.search){
+        return state.tasks
+      }else{
+        return state.tasks.filter(task => task.title.toLowerCase().includes(state.search.toLowerCase()))
+      }
+    }
   },
   mutations: {
     showSnackBar(state, text) {
@@ -61,6 +69,9 @@ export default new Vuex.Store({
     deleteTask(state, taskId) {
       state.tasks = state.tasks.filter((task) => task.id != taskId);
     },
+    searchFilter(state, searchData) {
+      state.search = searchData;
+    }
   },
   actions: {
     addNewTask({ commit }, payload) {

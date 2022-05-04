@@ -1,6 +1,5 @@
 <template>
 <v-app id="inspire">
-
     <v-navigation-drawer v-model="drawer" app>
         <v-list-item>
             <v-list-item-content>
@@ -32,29 +31,22 @@
         <template v-slot:img="{ props }">
             <v-img v-bind="props" gradient="to top right, rgba(19,84,122,.5), rgba(128,208,199,.8)"></v-img>
         </template>
+        <v-container class="pa-0 pt-3">
+            <v-row>
+                <v-app-bar-nav-icon @click="drawer=!drawer"></v-app-bar-nav-icon>
+                <v-spacer></v-spacer>
+                <search></search>
+            </v-row>
+            <v-row>
+                <v-toolbar-title>Tudos</v-toolbar-title>
+            </v-row>
+        </v-container>
 
-        <v-app-bar-nav-icon @click="drawer=!drawer"></v-app-bar-nav-icon>
-
-        <v-toolbar-title>Tudos</v-toolbar-title>
-
-        <v-spacer></v-spacer>
-
-        <v-btn icon>
-            <v-icon>mdi-magnify</v-icon>
-        </v-btn>
-
-        <v-btn icon>
-            <v-icon>mdi-heart</v-icon>
-        </v-btn>
-
-        <v-btn icon>
-            <v-icon>mdi-dots-vertical</v-icon>
-        </v-btn>
     </v-app-bar>
 
     <v-main>
         <snack-bars></snack-bars>
-        <router-view></router-view> 
+        <router-view></router-view>
     </v-main>
 </v-app>
 </template>
@@ -62,6 +54,7 @@
 <script>
 export default {
     components: {
+        'search': require('@/components/tools/Search.vue').default,
         'snack-bars': require('@/components/shared/SnackBars.vue').default,
     },
     data() {
