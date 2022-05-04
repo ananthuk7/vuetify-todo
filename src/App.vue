@@ -28,7 +28,7 @@
         </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar app color="primary" dark  src="https://picsum.photos/1920/1080?random" prominent>
+    <v-app-bar app color="primary" dark src="https://picsum.photos/1920/1080?random" prominent>
         <template v-slot:img="{ props }">
             <v-img v-bind="props" gradient="to top right, rgba(19,84,122,.5), rgba(128,208,199,.8)"></v-img>
         </template>
@@ -53,14 +53,17 @@
     </v-app-bar>
 
     <v-main>
-            <router-view>
-            </router-view>
+        <snack-bars></snack-bars>
+        <router-view></router-view> 
     </v-main>
 </v-app>
 </template>
 
 <script>
 export default {
+    components: {
+        'snack-bars': require('@/components/shared/SnackBars.vue').default,
+    },
     data() {
         return {
             drawer: null,
