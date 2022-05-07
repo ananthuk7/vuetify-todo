@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    appTitle:process.env.VUE_APP_TITLE,
     search: null,
     tasks: [
       {
@@ -17,7 +18,8 @@ export default new Vuex.Store({
     snackBar: {
       show: false,
       text: '',
-    }
+    },
+    sorted:false,
 
   },
   getters: {
@@ -57,6 +59,10 @@ export default new Vuex.Store({
       task.title = taskData.title;
       // console.log(taskData)
     },
+    setTasks(state,payload) {
+      // console.log(payload);
+      state.tasks = payload
+    },
     updateDueDate(state, taskData) {
       var task = state.tasks.filter((task) => task.id == taskData.id)[0];
       task.dueDate = taskData.dueDate;
@@ -71,7 +77,11 @@ export default new Vuex.Store({
     },
     searchFilter(state, searchData) {
       state.search = searchData;
+    },
+    toggleDraggable(state){
+      state.sorted = !state.sorted;
     }
+
   },
   actions: {
     addNewTask({ commit }, payload) {

@@ -52,6 +52,12 @@ export default {
                         this.dialog.edit = true;
                     }
                 },
+                {
+                    title: 'Sort',
+                    click() {
+                        this.$store.commit('toggleDraggable')        
+                    }
+                },
             ],
 
         }

@@ -23,7 +23,7 @@ data(){
 }
 </script>
 
-<style>
+<style scoped>
 .search-btn{
   transition: max-width 0.5s;
 }

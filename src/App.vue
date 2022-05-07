@@ -46,7 +46,7 @@
                 <search></search>
             </v-row>
             <v-row>
-                <v-toolbar-title>Todos</v-toolbar-title>
+                <v-toolbar-title>{{$store.state.appTitle}}</v-toolbar-title>
             </v-row>
             <v-row>
                 <live-date></live-date>
@@ -66,6 +66,7 @@
 export default {
     components: {
         'search': require('@/components/tools/Search.vue').default,
+        
         'live-date': require('@/components/tools/LiveDate.vue').default,
         'snack-bars': require('@/components/shared/SnackBars.vue').default,
     },
