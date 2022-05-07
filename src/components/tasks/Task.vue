@@ -1,6 +1,6 @@
 <template>
 <div>
-    <v-list-item @click="$store.commit('setActive', task.id)" :ripple="false">
+    <v-list-item @click="$store.dispatch('setActive', task.id)" :ripple="false">
         <template v-slot:default>
             <v-list-item-action>
                 <v-checkbox :input-value="task.done"></v-checkbox>

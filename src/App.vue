@@ -66,9 +66,11 @@
 export default {
     components: {
         'search': require('@/components/tools/Search.vue').default,
-        
         'live-date': require('@/components/tools/LiveDate.vue').default,
         'snack-bars': require('@/components/shared/SnackBars.vue').default,
+    },
+    mounted(){
+        this.$store.dispatch('getTasks')
     },
     data() {
         return {

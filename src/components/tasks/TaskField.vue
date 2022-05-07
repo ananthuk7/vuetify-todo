@@ -24,8 +24,8 @@ export default {
     methods: {
         addTask() {
             if (!this.validateTitle) {
-                this.$store.dispatch("addNewTask", this.newTaskTitle),
-                    (this.newTaskTitle = "");
+                this.$store.dispatch("addNewTask", this.newTaskTitle)
+                this.newTaskTitle = ""
             }
         },
     },
