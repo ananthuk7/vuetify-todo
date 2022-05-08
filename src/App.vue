@@ -67,9 +67,6 @@ export default {
     },
     mounted() {
         this.$store.dispatch("getTasks");
-        if(this.$store.state.search){
-            this.$store.state.sorted = false;
-        }
     },
     data() {
         return {

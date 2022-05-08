@@ -9,7 +9,8 @@
 
         <v-list>
             <v-list-item v-for="(item, i) in items" :key="i" @click="handleClick(i)">
-                <v-list-item-title>{{ item.title }}</v-list-item-title>
+                <v-icon>{{item.icon}}</v-icon>
+                <v-list-item-title class="ml-2">{{ item.title }}</v-list-item-title>
             </v-list-item>
         </v-list>
     </v-menu>
@@ -36,24 +37,28 @@ export default {
             },
             items: [{
                     title: 'Delete',
+                    icon:'mdi-trash-can-outline',
                     click() {
                         this.dialog.delete = true;
                     }
                 },
                 {
                     title: 'Due Date',
+                    icon:'mdi-calendar',
                     click() {
                         this.dialog.dueDate = true;
                     }
                 },
                 {
                     title: 'Edit',
+                    icon:'mdi-pencil',
                     click() {
                         this.dialog.edit = true;
                     }
                 },
                 {
                     title: 'Sort',
+                    icon:'mdi-sort',
                     click() {
                         if(!this.$store.state.search){
                             this.$store.commit('toggleDraggable')        
