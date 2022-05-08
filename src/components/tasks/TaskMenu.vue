@@ -55,7 +55,11 @@ export default {
                 {
                     title: 'Sort',
                     click() {
-                        this.$store.commit('toggleDraggable')        
+                        if(!this.$store.state.search){
+                            this.$store.commit('toggleDraggable')        
+                        }else{
+                            this.$store.commit('showSnackBar',"You can't sort tasks while updating")
+                        }
                     }
                 },
             ],

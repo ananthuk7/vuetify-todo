@@ -10,11 +10,16 @@
     </v-snackbar>
 </div>
 </template>
+
 <script>
 export default {
     data: () => ({
-      multiLine: true,
-      text: `I'm a multi-line snackbar.`,
+        multiLine: true,
     }),
 }
 </script>
+
+<style lang="sass">
+div.v-snack:not(.v-snack--absolute) 
+    height: 100%
+</style>

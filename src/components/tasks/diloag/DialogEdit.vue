@@ -42,6 +42,7 @@ export default {
             // console.log(taskData)
             this.$store.dispatch('updateTask',taskData);
             this.$emit('close');
+            this.$vuetify.goTo(0, { duration: 0 })
         }
 
     },

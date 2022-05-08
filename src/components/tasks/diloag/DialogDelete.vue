@@ -11,7 +11,7 @@
                 <v-btn color="green darken-1" text @click="$emit('close')">
                     no
                 </v-btn>
-                <v-btn color="green darken-1" text  @click="$store.dispatch('deleteTask',task.id)">
+                <v-btn color="green darken-1" text  @click="deleteTask(task.id)">
                     yes
                 </v-btn>
             </v-card-actions>
@@ -23,6 +23,12 @@
 <script>
 export default {
     props:['task'],
+    methods:{
+        deleteTask(id){
+            this.$store.dispatch('deleteTask',id)
+            this.$emit('close')
+        }
+    }
 }
 </script>
 
